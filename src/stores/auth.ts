@@ -40,6 +40,7 @@ const login = (userSession: Session) => {
 const logout = () => {
   session.value = null
   localStorage.removeItem('ticketapp_session')
+  window.location.href = '/'
 }
 
 const checkAuth = () => {

@@ -28,12 +28,6 @@ A modern, responsive ticket management application built with Vue 3, featuring s
 - **Lucide Vue Next** - Beautiful & consistent icon library
 - **Vue Toastification** - Toast notification library
 
-### Development Dependencies
-- **@vitejs/plugin-vue** - Vue plugin for Vite
-- **@vue/tsconfig** - TypeScript configuration for Vue
-- **Autoprefixer** - CSS post-processing tool
-- **PostCSS** - CSS processing tool
-
 ## 📋 Prerequisites
 
 - **Node.js**: Version 20.19.0 or higher (or >= 22.12.0)
@@ -41,7 +35,7 @@ A modern, responsive ticket management application built with Vue 3, featuring s
 
 ## 🏗️ Setup and Installation
 
-### 1. Clone the Repository
+### 1. Clone and navigate
 ```bash
 git clone <repository-url>
 cd vue-ticket-app
@@ -58,21 +52,6 @@ npm run dev
 ```
 The application will be available at `http://localhost:5173/`
 
-### 4. Build for Production
-```bash
-npm run build
-```
-
-### 5. Preview Production Build
-```bash
-npm run preview
-```
-
-### 6. Type Checking
-```bash
-npm run type-check
-```
-
 ## 🌐 Usage Instructions
 
 ### For Development (Local)
@@ -80,11 +59,10 @@ npm run type-check
 2. Open your browser to `http://localhost:5173/`
 3. Navigate through the application
 
-### For Production (Hosted)
-1. Build the application: `npm run build`
-2. The `dist/` folder will contain the production-ready files
-3. Deploy the contents of `dist/` to your web server
-4. Ensure your hosting provider supports SPA routing (fallback to index.html)
+### Hosted On
+
+#### Vercel 
+- Find the app using : https://vue-ticket-app-one.vercel.app/
 
 ### Switching Between Development and Production
 - **Development**: Use `npm run dev` for hot-reload and debugging
@@ -121,7 +99,7 @@ npm run type-check
 - **Semantic HTML**: Proper use of headings, labels, and ARIA attributes
 - **Keyboard Navigation**: Full keyboard support for all interactive elements
 - **Screen Reader Support**: Descriptive labels and announcements
-- **Color Contrast**: WCAG compliant color combinations
+- **Color Contrast**: compliant color combinations
 - **Focus Management**: Visible focus indicators and logical tab order
 
 ## 🐛 Known Issues & Limitations
@@ -136,11 +114,6 @@ npm run type-check
 - **Modern Browsers**: Chrome 90+, Firefox 88+, Safari 14+, Edge 90+
 - **Mobile Browsers**: iOS Safari 14+, Chrome Mobile 90+
 - **Not Supported**: Internet Explorer (any version)
-
-### Performance Considerations
-- **Bundle Size**: ~2.5MB (gzipped: ~800KB)
-- **First Load**: Initial load may be slower on slow connections
-- **Memory Usage**: Minimal memory footprint for typical usage
 
 ## 🔐 Authentication System
 
@@ -161,7 +134,7 @@ npm run type-check
 **Important**: This application does not come with pre-built user accounts. Users must register themselves using the signup form.
 
 ### Example Registration Process
-1. Visit the application at `http://localhost:5173/`
+1. Visit the application at `https://vue-ticket-app-one.vercel.app/`
 2. Click "Get Started" or navigate to `/auth/SignUp`
 3. Fill out the registration form with:
    - Full Name (e.g., "John Doe")
@@ -177,60 +150,3 @@ After registration, you can create sample tickets with various statuses:
 - **Description**: "Users unable to login with valid credentials"
 - **Status**: "open" / "in_progress" / "closed"
 - **Priority**: "high" / "medium" / "low"
-
-## 📁 Project Structure
-
-```
-vue-ticket-app/
-├── public/
-│   ├── favicon.ico
-│   └── favicon.svg
-├── src/
-│   ├── assets/
-│   │   ├── base.css
-│   │   ├── logo.svg
-│   │   └── main.css
-│   ├── components/
-│   │   ├── LandingPage.vue
-│   │   ├── Login.vue
-│   │   ├── SignUp.vue
-│   │   └── ...
-│   ├── stores/
-│   │   └── auth.ts
-│   ├── views/
-│   │   ├── DashboardView.vue
-│   │   └── TicketsView.vue
-│   ├── router/
-│   │   └── index.ts
-│   ├── App.vue
-│   └── main.ts
-├── package.json
-├── tailwind.config.js
-├── tsconfig.json
-└── README.md
-```
-
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create a feature branch: `git checkout -b feature-name`
-3. Make your changes and test thoroughly
-4. Commit your changes: `git commit -am 'Add feature'`
-5. Push to the branch: `git push origin feature-name`
-6. Submit a pull request
-
-## 📄 License
-
-This project is for educational and demonstration purposes. See individual component licenses for third-party dependencies.
-
-## 🆘 Support
-
-For issues or questions:
-1. Check the browser console for errors
-2. Verify Node.js version compatibility
-3. Ensure all dependencies are installed
-4. Check the terminal output for build errors
-
----
-
-**Note**: This is a demonstration application showcasing Vue 3, TypeScript, and modern web development practices. It is not intended for production use without proper security implementations.

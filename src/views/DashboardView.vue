@@ -254,7 +254,6 @@ const toggleMobileMenu = () => {
 
 const handleLogout = () => {
   logout();
-  router.push('/auth/Login');
 };
 </script>
 

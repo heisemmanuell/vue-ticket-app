@@ -493,7 +493,6 @@ const handleDeleteTicket = async (ticketId) => {
 
 const handleLogout = () => {
   logout();
-  router.push('/auth/Login');
 };
 
 const toggleMobileMenu = () => {
