@@ -1,0 +1,32 @@
+@import './base.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Override the #app default styles to allow full-width layouts */
+#app {
+  font-weight: normal;
+  max-width: 1400px;
+  padding: 0;
+  margin: 0 auto;
+  /* Remove max-width and padding constraints */
+}
+
+@media (hover: hover) {
+  a:hover {
+    /* background-color: hsla(160, 100%, 37%, 0.2); */
+  }
+}
+
+/* Custom Tailwind utilities for animations */
+@layer utilities {
+  .delay-500 {
+    animation-delay: 500ms;
+  }
+
+  .delay-1000 {
+    animation-delay: 1000ms;
+  }
+}
+
