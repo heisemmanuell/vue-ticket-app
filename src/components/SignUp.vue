@@ -80,13 +80,6 @@
         </div>
       </form>
 
-      <!-- Toast Notification -->
-      <div
-        v-if="toast.show"
-        class="fixed bottom-4 right-4 bg-red-500 text-white px-4 py-2 rounded-md shadow-lg"
-      >
-        {{ toast.message }}
-      </div>
     </div>
   </div>
 </template>
@@ -95,9 +88,11 @@
 import { ref, reactive } from 'vue';
 import { useRouter } from 'vue-router';
 import { useAuth } from '@/stores/auth';
+import { useToast } from 'vue-toastification';
 
 const router = useRouter();
 const { login } = useAuth();
+const toast = useToast();
 
 const form = reactive({
   name: '',
@@ -114,10 +109,6 @@ const errors = reactive({
 });
 
 const loading = ref(false);
-const toast = reactive({
-  show: false,
-  message: ''
-});
 
 const validateForm = () => {
   errors.name = '';
@@ -164,7 +155,7 @@ const handleSignUp = async () => {
     const existingUser = users.find((u) => u.email === form.email);
 
     if (existingUser) {
-      showToast('User with this email already exists');
+      toast.error('User with this email already exists');
       loading.value = false;
       return;
     }
@@ -190,17 +181,11 @@ const handleSignUp = async () => {
     login(session);
 
     // Redirect to dashboard
+    toast.success('Account created successfully! Welcome to Ticket Web App.');
     router.push('/dashboard');
 
     loading.value = false;
   }, 1000);
 };
 
-const showToast = (message) => {
-  toast.message = message;
-  toast.show = true;
-  setTimeout(() => {
-    toast.show = false;
-  }, 3000);
-};
 </script>

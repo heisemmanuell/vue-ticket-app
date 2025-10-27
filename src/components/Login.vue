@@ -56,15 +56,6 @@
         </div>
       </form>
 
-      <!-- Toast Notification -->
-      <transition name="fade">
-      <div
-        v-if="toast.show"
-        class="fixed bottom-4 right-4 bg-red-500 text-white px-4 py-2 rounded-md shadow-lg z-50"
-      >
-        {{ toast.message }}
-      </div>
-    </transition>
     </div>
   </div>
 </template>
@@ -73,9 +64,11 @@
 import { ref, reactive } from 'vue';
 import { useRouter } from 'vue-router';
 import { useAuth } from '@/stores/auth';
+import { useToast } from 'vue-toastification';
 
 const router = useRouter();
 const { login } = useAuth();
+const toast = useToast();
 
 const form = reactive({
   email: '',
@@ -88,10 +81,6 @@ const errors = reactive({
 });
 
 const loading = ref(false);
-const toast = reactive({
-  show: false,
-  message: ''
-});
 
 const validateForm = () => {
   errors.email = '';
@@ -136,22 +125,15 @@ const handleLogin = async () => {
         loginTime: new Date().toISOString()
       };
       login(session);
-
       // Redirect to dashboard (assuming /dashboard exists)
+      toast.success('Login successful! Welcome back.');
       router.push('/dashboard');
     } else {
-      showToast('Invalid email or password');
+      toast.error('Invalid email or password');
     }
 
     loading.value = false;
   }, 1000);
 };
 
-const showToast = (message) => {
-  toast.message = message;
-  toast.show = true;
-  setTimeout(() => {
-    toast.show = false;
-  }, 3000);
-};
 </script>

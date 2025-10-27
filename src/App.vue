@@ -7,6 +7,6 @@
   </div>
 </template>
 
-<script setup>
-import Footer from './components/Footer.vue'
+<script setup lang="ts">
+import Footer from './components/Footer.vue';
 </script>
